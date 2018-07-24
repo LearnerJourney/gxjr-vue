@@ -5,8 +5,17 @@
     <swiperCompent></swiperCompent>
     <div class=" noticeInfo">
       <div class="leftImg"></div>
-      <ul style="display: inline-block">
-        <li></li>
+      <ul>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
+        <li>测试测试测试</li>
       </ul>
       <div class="lookInfo">查看更多 >></div>
     </div>
@@ -135,17 +144,45 @@ a {
     >div{
      display:  inline-block;
     }
+    >ul {
+      display: inline-block;
+      height: 30px;
+      overflow: hidden;
+      vertical-align: middle;
+      >li{
+        display: block;
+        height: 21px;
+        margin-bottom: 14px;
+        color: grey!important;
+        position:relative;
+        animation:mymove 10s infinite;
+        -webkit-animation:mymove 10s infinite; /*Safari and Chrome*/
+        animation-direction:alternate;
+      }
+      @keyframes mymove
+      {
+        from {top:0px;}
+        to {top:-300px}
+      }
+
+      @-webkit-keyframes mymove /*Safari and Chrome*/
+      {
+        from {top:0px;}
+        to {top:-300px;}
+      }
+    }
     .leftImg{
       width: 20px;
       height: 20px;
       background: url('https://oss.wlgyjr.cn/web/images/index/notice.png') no-repeat 0 -1px;
       margin-right: 10px;
+      vertical-align: middle;
     }
     .lookInfo{
       float: right;
       font-size: 16px;
       color: grey;
-      line-height: 16px;
+      line-height: 50px;
     }
   }
 </style>

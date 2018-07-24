@@ -1,7 +1,7 @@
 <template>
   <!-- Swiper -->
   <swiper :options="swiperOption">
-    <swiper-slide v-for="solid in solidList"><img :src="solid"></swiper-slide>
+    <swiper-slide v-for="solid in solidList" :key="solid"><img :src="solid"></swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
   </swiper>
 </template>
