@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import HeadComponents from '@/components/head/head'
 import HeaderComponents from '@/components/header/header'
+import SwiperComponents from '@/components/common/swiper'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/header',
       name: 'header',
       component: HeaderComponents
+    },
+    {
+      path: '/swiper',
+      name: '/swiper',
+      component: SwiperComponents
     }
   ]
 })

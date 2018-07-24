@@ -1,6 +1,15 @@
 <template>
   <div class="hello">
-    <!--<head></head>-->
+    <headCompent></headCompent>
+    <headerCompent></headerCompent>
+    <swiperCompent></swiperCompent>
+    <div class=" noticeInfo">
+      <div class="leftImg"></div>
+      <ul style="display: inline-block">
+        <li></li>
+      </ul>
+      <div class="lookInfo">查看更多 >></div>
+    </div>
     <!--<h1>{{ msg }}</h1>-->
     <!--<h2>Essential Links</h2>-->
     <!--<ul>-->
@@ -85,22 +94,26 @@
 </template>
 
 <script>
-// import  head from 'head/head.vue';
+  import headCompent from './head/head.vue'
+  import headerCompent from './header/header.vue'
+  import swiperCompent from './common/swiper.vue'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components : {
+    headCompent,
+    headerCompent,
+    swiperCompent
   }
-  // ,components : {
-  //   head
-  // }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 h1, h2 {
   font-weight: normal;
 }
@@ -115,4 +128,24 @@ li {
 a {
   color: #42b983;
 }
+  .noticeInfo{
+    width: 1200px !important;
+    height: 50px;
+    margin: 0 auto;
+    >div{
+     display:  inline-block;
+    }
+    .leftImg{
+      width: 20px;
+      height: 20px;
+      background: url('https://oss.wlgyjr.cn/web/images/index/notice.png') no-repeat 0 -1px;
+      margin-right: 10px;
+    }
+    .lookInfo{
+      float: right;
+      font-size: 16px;
+      color: grey;
+      line-height: 16px;
+    }
+  }
 </style>
