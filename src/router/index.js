@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import HeadTopComponents from '@/components/headTop/headTop'
 import HeadBottomComponents from '@/components/headBottom/headBottom'
 import SwiperComponents from '@/components/common/swiper'
+import InvestComponents from '@/components/invest/invest'
 
 Vue.use(Router)
 
@@ -26,8 +27,13 @@ export default new Router({
     },
     {
       path: '/swiper',
-      name: '/swiper',
+      name: 'swiper',
       component: SwiperComponents
+    },
+    {
+      path: '/invest',
+      name: 'invest',
+      component: InvestComponents
     }
   ]
 })
