@@ -1,62 +1,99 @@
 <template>
-  <!-- Swiper -->
-  <swiper :options="swiperOption">
-    <swiper-slide v-for="solid in solidList" :key="solid"><img :src="solid"></swiper-slide>
-    <div class="swiper-pagination"  slot="pagination"></div>
-  </swiper>
+  <div class="swiperImg">
+    <!--轮播图-->
+    <img :src="imgUrl"></img>
+    <!--pagination-->
+    <ul class="pagination">
+      <li v-for="solid in solidList" v-on:mouseleave="createTimeOut" v-on:mouseenter="clearTimeOut(solid.index)"></li>
+    </ul>
+  </div>
 </template>
 
 <script>
-  import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import 'swiper/dist/css/swiper.css'
   export default {
     name: "swiperComponents",
     data() {
       return {
-        swiperOption: {
-          spaceBetween: 0,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
-          autoplay: {
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: false
-          }
-        },
-        solidList: ['https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg', 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg', 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg', 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg', 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg']
+        imgIndex: 0,
+        imgUrl: 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg',
+        solidList: [
+          {url: 'https://www.wlgyjr.com/public/attachment/201804/25/14/5ae026e98332c.jpg', index: 0},
+          {url: 'https://www.wlgyjr.com/public/attachment/201805/22/11/5b038f4998733.jpg', index: 1}]
       }
     },
-    components: {
-      swiper,
-      swiperSlide
+    //计算属性
+    computed: {
+      timeOut: {
+        set (val) {
+          this.$store.state.timeout.compileTimeout = val;
+        },
+        get() {
+          return this.$store.state.timeout.compileTimeout;
+        }
+      },
+    },
+    methods: {
+      //创建定时器
+      createTimeOut() {
+        let _this = this;
+        this.timeout = setTimeout(() => {
+          _this.imgIndex ++;
+          if (_this.imgIndex == _this.solidList.length) {
+            _this.imgIndex = 0;
+          }
+          _this.imgUrl = _this.solidList[_this.imgIndex].url;
+          _this.createTimeOut();
+        },3000)
+      },
+      //销毁定时器
+      clearTimeOut(index) {
+        this.imgIndex = index;
+        this.imgUrl = this.solidList[this.imgIndex].url;
+        clearTimeout(this.timeout);
+      }
+    },
+    //页面渲染后执行
+    mounted() {
+      this.createTimeOut();
     }
   }
 </script>
 
 <style lang="scss">
-  .swiper-container {
+  .swiperImg {
+    clear: both;
     width: 100%;
-    height: 100%;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
+    height: 400px;
+    position: relative;
+    min-width: 1200px;
+    >img {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+    >ul {
+      display: inline-block;
+      width: 300px;
+      position: absolute;
+      bottom: 10px;
+      list-style: none;
+      left: 50%;
+      margin-left: -150px;
+      text-align:center;
+      >li {
+        display: inline-block;
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background: #fff;
+        opacity: .5;
+        cursor: pointer;
+      }
+      >li:hover {
+        width: 20px;
+      }
+    }
 
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
   }
 </style>

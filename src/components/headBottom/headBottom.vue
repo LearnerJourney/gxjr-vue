@@ -1,12 +1,12 @@
 <template>
-  <div class="header">
+  <div class="headBottom">
     <!--<router-link to="/">1111</router-link>-->
-    <div>
+    <div style="float: left">
       <router-link to="/">
         <img class="leftImg" src="https://oss.wlgyjr.cn/web/images/logo.png">
       </router-link>
     </div>
-    <div>
+    <div style="float: left">
       <img class="rightImg" src="https://oss.wlgyjr.cn/web/images/index/logo_attach.png">
     </div>
     <ul class="main_nav">
@@ -36,7 +36,7 @@
 
 <script>
   export default {
-    name: 'header',
+    name: 'headBottom',
     data() {
       return {
         clickOption: 0
@@ -55,7 +55,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .header {
+  .headBottom {
     line-height: 78px;
     height: 78px;
     font-size: 12px;

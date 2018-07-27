@@ -1,5 +1,5 @@
 <template>
-  <div class="head">
+  <div class="headTop">
     <div class="topDiv">
       <div class="head-left">
         <span></span>
@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: 'head',
+    name: 'headTop',
     data() {
       return {
         titleName: 'head'
@@ -42,7 +42,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .head {
+  .headTop {
     /*margin-top: 0;*/
     background: #3d3d3e;
     line-height: 30px;
