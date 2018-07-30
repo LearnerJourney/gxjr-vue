@@ -94,8 +94,25 @@
           </div>
         </div>
       </div>
-      <div class="investList" style="height: 500px">
-        <div class="investInfo"></div>
+      <div class="container" style="height: 500px">
+        <div class="investInfo">
+          <div class="topDiv">
+            <div class="redDiv"></div><div>某商贸企业资金周转1357号</div>
+          </div>
+          <div class="bottomDiv">
+            <table>
+              <tr>
+                <td>9</td>
+                <td>6<span>个月</span></td>
+                <td>￥50<span>万</span></td>
+                <td>付息还本</td>
+                <td></td>
+                <td><div>还款中</div></td>
+              </tr>
+              <tr></tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -125,7 +142,7 @@
         }
         .condition {
           background:  #ffffff;
-          width: 850px;
+          width: 890px;
           vertical-align: middle;
           .arrt-list {
             line-height: 40px;
@@ -208,8 +225,27 @@
         }
       }
     }
-    .investList {
-
+    .investInfo {
+      height: 180px;
+      background: #fff;
+      margin-top: 30px;
+      border: 0 none;
+      padding: 20px 40px;
+      .topDiv {
+        color: #666;
+        height: 25px;
+        font-size: 18px;
+        >div {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .redDiv {
+          background: #ff5c5c;
+          height: 18px;
+          width: 5px;
+          margin-right: 5px;
+        }
+      }
     }
   }
 

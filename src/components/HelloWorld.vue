@@ -224,11 +224,6 @@
     //页面渲染后执行
     mounted() {
       this.createTimeOut();
-      var money = 36000;
-      for (var i=0 ; i < 30 ; i++) {
-        money = ((money*0.1) + money) + 36000;
-      }
-      console.log(money);
     }
   }
 </script>
