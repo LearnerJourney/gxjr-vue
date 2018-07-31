@@ -102,17 +102,30 @@
           <div class="bottomDiv">
             <table>
               <tr>
-                <td>9</td>
-                <td>6<span>个月</span></td>
-                <td>￥50<span>万</span></td>
+                <td>9&nbsp;<span>%</span></td>
+                <td>6&nbsp;<span>个月</span></td>
+                <td>￥50&nbsp;<span>万</span></td>
                 <td>付息还本</td>
-                <td></td>
+                <td>
+                  <div>
+                    <div :style="{width: schedule + '%'}"></div>
+                  </div>
+                  <span>90%</span>
+                </td>
                 <td><div>还款中</div></td>
               </tr>
-              <tr></tr>
+              <tr>
+                <td>年化收益率</td>
+                <td>项目期限</td>
+                <td>募集金额</td>
+                <td>还款方式</td>
+                <td>剩余金额:50,000.00元</td>
+                <td>到期时间:2018-07-18</td>
+              </tr>
             </table>
           </div>
         </div>
+        <pageCompent v-bind:page="1000"></pageCompent>
       </div>
     </div>
 </template>
@@ -120,11 +133,18 @@
 <script>
   import headTopCompent from '../headTop/headTop.vue'
   import headBottomCompent from '../headBottom/headBottom.vue'
+  import pageCompent from '../common/page'
     export default {
       name: "invest",
       components: {
         headTopCompent,
-        headBottomCompent
+        headBottomCompent,
+        pageCompent
+      },
+      data() {
+        return {
+          schedule: 20
+        }
       }
     }
 </script>
@@ -226,7 +246,7 @@
       }
     }
     .investInfo {
-      height: 180px;
+      height: 160px;
       background: #fff;
       margin-top: 30px;
       border: 0 none;
@@ -244,6 +264,94 @@
           height: 18px;
           width: 5px;
           margin-right: 5px;
+        }
+      }
+      .bottomDiv {
+        table {
+          text-align: center;
+        }
+        table >tr:first-child {
+          margin-top: 20px;
+          display: inline-block;
+          >td{
+            font-size: 36px;
+            >span {
+              font-size: 16px;
+              color: #999;
+            }
+          }
+          >td:first-child{
+            color: #ff5c5c;
+            width: 190px;
+          }
+          >td:nth-of-type(2){
+            width: 120px;
+          }
+          >td:nth-of-type(3){
+            font-size: 30px;
+            width: 190px;
+          }
+          >td:nth-of-type(4){
+            width: 160px;
+            font-size: 24px;
+          }
+          >td:nth-of-type(5){
+            text-align: left;
+            width: 280px;
+            >div {
+              height: 2px;
+              border: 0 none;
+              width: 160px;
+              background-color: #ccc;
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 5px;
+              >div {
+                height: 2px;
+                border: 0 none;
+                background-color: #ff5c5c;
+              }
+            }
+            >span {
+              vertical-align: middle;
+            }
+          }
+          >td:nth-of-type(6){
+            >div {
+              border:1px solid #ccc;
+              border-radius: 4px;
+              padding: 6px 12px;
+              font-size: 14px;
+              font-weight: 400;
+              opacity: 0.6;
+              color: #333;
+            }
+            width: 142px;
+          }
+        }
+        tr:nth-of-type(2) {
+          color: #999;
+          font-size: 12px;
+          display: inline-block;
+          >td:first-child{
+            width: 190px;
+          }
+          >td:nth-of-type(2){
+            width: 120px;
+          }
+          >td:nth-of-type(3){
+            width: 190px;
+          }
+          >td:nth-of-type(4){
+            width: 160px;
+          }
+          >td:nth-of-type(5){
+            text-align: left;
+            width: 280px;
+          }
+          >td:nth-of-type(6){
+            width: 142px;
+          }
         }
       }
     }

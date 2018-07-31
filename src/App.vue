@@ -16,8 +16,8 @@ body {
   padding: 0px;
 }
   #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Microsoft YaHei",微软雅黑;
+    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
