@@ -3,7 +3,7 @@
     <div class="condition">
       <ul>
         <li :class="{'prev': nowPage > 6}" v-if="nowPage > 6" @click="pageClick(1)" >1</li>
-        <li :class="{'prev': nowPage < 6}" v-if="nowPage > 0" @click="prevClick()">上一页</li>
+        <li :class="{'prev': nowPage < 6}" v-if="nowPage > 1" @click="prevClick()">上一页</li>
         <li v-for="pageValue in pageList"  :class="{'clickSty': nowPage == pageValue, 'prev': nowPage-5 > 0?pageValue == nowPage-5:pageValue == 0,'last': nowPage == pageNumber}" @click="pageClick(pageValue)">{{pageValue}}</li>
         <li class="next" v-if="nowPage <  pageNumber" :class="{'last': pageNumber != nowPage && !(pageNumber>11 && nowPage < pageNumber-5)}" @click="nextClick()">下一页</li>
         <li class="last" v-if="pageNumber>11 && nowPage < pageNumber-5" @click="pageClick(pageNumber)">{{pageNumber}}</li>
@@ -17,7 +17,7 @@
       name: "page",
       data() {
         return {
-          nowPage: 0,
+          nowPage: 1,
           pageNumber: 0,
           pageList: []
         }
@@ -54,18 +54,19 @@
             vm.$set(this.pageList,x,i);
             x ++ ;
           }
-          console.log(this.pageList);
+          this.$emit('change', this.nowPage);
         },
         //上一页
         prevClick: function() {
-          this.nowPage = this.nowPage == 1 ? 1 : this.nowPage -- ;
+           this.nowPage == 1 ? 1 : this.nowPage -- ;
           this.pageClick(this.nowPage);
         },
         //下一页
         nextClick: function() {
-          this.nowPage = this.nowPage == this.pageNumber ? 1 : this.nowPage ++ ;
+         this.nowPage == this.pageNumber ? this.pageNumber : this.nowPage ++;
           this.pageClick(this.nowPage)
         }
+
       }
     }
 </script>

@@ -125,7 +125,7 @@
             </table>
           </div>
         </div>
-        <pageCompent v-bind:page="1000"></pageCompent>
+        <pageCompent v-bind:page="1000" @change="pageChange"></pageCompent>
       </div>
     </div>
 </template>
@@ -144,6 +144,11 @@
       data() {
         return {
           schedule: 20
+        }
+      },
+      methods: {
+        pageChange (page) {
+          console.log(page);
         }
       }
     }
