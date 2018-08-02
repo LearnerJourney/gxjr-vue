@@ -61,6 +61,7 @@
     methods: {
     //  菜单栏选择值变化
       commitOption(option) {
+        console.log(this.clickOption == 0 && this.$route.path == '/');
         this.$store.commit('changeClickOption',option)
       }
     },
@@ -73,7 +74,8 @@
 <style lang="scss" scoped>
   .headBottom {
     background: #fff;
-    line-height: 78px;
+    margin-bottom: 10px;
+    /*line-height: 78px;*/
     height: 78px;
     font-size: 12px;
     color: #ccc;

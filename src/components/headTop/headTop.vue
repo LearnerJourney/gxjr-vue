@@ -11,7 +11,7 @@
       </div>
       <div class="head-right">
         <span @click = "skip('/')">免费注册<div></div></span>
-        <span @click = "skip('/')">立即登陆<div></div></span>
+        <span @click = "skip('/login')">立即登陆<div></div></span>
         <span @click = "skip('/')">帮助中心<div></div></span>
         <span @click = "skip('/')">信息披露<div></div></span>
         <span @click = "skip('/')">手机投资<div></div></span>
