@@ -189,6 +189,7 @@
               display: inline-block;
               margin-right: 20px;
               width: 100px;
+              border: 1px solid #ffffff;
             }
             li:first-child {
               margin-right: 0;
@@ -199,6 +200,11 @@
             li:nth-of-type(2) {
               border: 1px solid #ff5c5c;
               color: #ff5c5c;
+            }
+            li:hover {
+              border: 1px solid #ff5c5c;
+              color: #ff5c5c;
+              cursor: pointer;
             }
           }
           .investCount {

@@ -12,12 +12,12 @@
       </div>
       <ul class="main_nav">
         <router-link to="/">
-          <li v-bind:class="{'current': this.clickOption == 0}" @click="commitOption(0)">
+          <li v-bind:class="{'current': this.clickOption == 0 && this.$route.path == '/' }" @click="commitOption(0)">
             首页
           </li>
         </router-link>
         <router-link to="/invest">
-          <li v-bind:class="{'current': this.clickOption == 1}" @click="commitOption(1)">
+          <li v-bind:class="{'current': this.clickOption == 1 || this.$route.path == '/invest'}" @click="commitOption(1)">
            我要投资
           </li>
         </router-link>
@@ -63,6 +63,9 @@
       commitOption(option) {
         this.$store.commit('changeClickOption',option)
       }
+    },
+    mounted: function () {
+      console.log();
     }
   }
 </script>

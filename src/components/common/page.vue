@@ -98,6 +98,11 @@
           border: 1px solid #ddd;
           cursor: pointer;
         }
+        li:hover {
+          color: #fff;
+          background-color: #337ab7;
+          border-color: #337ab7;
+        }
         .clickSty {
           color: #fff;
           cursor: default;
