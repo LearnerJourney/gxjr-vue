@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueCountUp from 'vue-countupjs'
 import store from  './components/vuex/store'
+import $ from 'jquery'
 
 Vue.use(VueCountUp);
 Vue.config.productionTip = false
